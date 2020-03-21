@@ -2,12 +2,13 @@ include ../partials/header.pug
 h1 Qui prend quoi ?
 
 h2 Créer un événement
-  form(method='post' action='/party')
-    div
-      label(for="name") Nom de l'événement
-      input(name="name" id="name" required minLength="3" placeholder="Nouvel an")
-      label(for="author") Artiste
-      input(name="author" id="author" required minlength="3" placeholder="Narkotek")
-      label(for="date") Date
-      input(name="date" id="date" type="date")
-    button(type="submit") Créer
+form(method="post" action="/party").newParty
+  div.newParty__fields
+    label(for="name") Nom de l'événement
+    input(name="name" id="name" required minlength="3" placeholder="Ton Event")
+    label(for="author" required) Votre pseudo
+    input(name="author" id="author" required minlength="3" placeholder="Ton nom")
+    label(for="date") Date de l'événement
+    input(name="date" id="date" type="date")
+    input(id="url" value=`${url}` data-clipboard=`${url}`)
+  button(type="submit") Créer
