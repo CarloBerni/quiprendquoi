@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run sass\" \"npm:watchify\" \"nodemon app.js\"",
+    "start": "concurrently --kill-others \"npm run sass\" \"npm:watchify\" \"npm:sw\" \"nodemon app.js\"",
     "sass": "node-sass styles/style.scss public/style.css -w --output-style compressed",
     "watchify": "watchify scripts/*.js -o public/script.js -t [ babelify --presets [ @babel/preset-env babel-preset-minify ] ]",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sw": "watchify sw.js -o public/sw.js -t [ babelify --presets [ babel-preset-minify ] ]"
   },
   "repository": {
     "type": "git",
